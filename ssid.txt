@@ -1,0 +1,6 @@
+📈 1 bitcoin = %P (%C)
+📈 1 BTC = %P (%C)
+📈 1 Bitcoin = %P (%C)
+📈 bitcoin = %P (%C)
+📈 BTC = %P (%C)
+📈 Bitcoin = %P (%C)
