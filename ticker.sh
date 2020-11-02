@@ -1,8 +1,7 @@
 #!/bin/bash
+url='https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true'
+data=$(wget -qO- $url|./JSON.sh)
+price=$(echo "$data"|grep '"usd"]'|cut -d$'\t' -f2|sed -r 's/\..*//')
+change=$(echo "$data"|grep '"usd_24h_change"]'|cut -d$'\t' -f2|sed -r 's/\..*//'|sed 's/^-/-$/'|sed -r 's/^[0-9]/+$\0/')
 
-data=$(wget -qO- https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD|./JSON.sh|egrep '\["last"\]|\["changes","price","day"\]'|cut -d$'\t' -f2)
-data=(${data//$'\n'/ })
-price="\$$(echo ${data[0]}|sed -r 's/\n|\..*//g')"
-change=$(echo ${data[1]}|sed 's/\n//'|sed 's/^-/-$/'|sed -r 's/^[0-9]/+$\0/')
-
-echo "$price $change"
+echo "\$$price $change"

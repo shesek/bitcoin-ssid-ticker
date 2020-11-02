@@ -2,7 +2,7 @@
 
 #### Real time price ticker for Bitcoin over wifi network names (SSID)
 
-Price pulled from [BitcoinAverage](https://bitcoinaverage.com/) and broadcasted using [mdk3](http://tools.kali.org/wireless-attacks/mdk3).
+Price pulled from Bitstamp and broadcasted using [mdk3](http://tools.kali.org/wireless-attacks/mdk3).
 Script written for Openwrt, but likely to work elsewhere. Ideal for a [portable router](https://wiki.openwrt.org/toh/tp-link/tl-mr3040),
 send over-the-air bitcoin graffiti anywhere you go!
 
@@ -23,7 +23,7 @@ identifying as wifi access points with custom SSIDs. These APs don't really exis
 
 ### Scripts:
 
-- `./ticker.sh`: fetches data from bitcoinaverage and outputs `[price] [24_hour_change]`
+- `./ticker.sh`: fetches data from bitstamp and outputs `[price] [24_hour_change]`
 
 - `./broadcast.sh`: starts mdk3 and periodically updates the ticker data (by default, every 15s)
 
@@ -35,7 +35,7 @@ Network names are limited to 32 bytes.
 
 Some more configuration options are available in `broadcast.sh`:
 
-- `INTERVAL` - interval for pulling data from BitcoinAverage, in seconds.
+- `INTERVAL` - interval for pulling data from Bitstamp, in seconds.
 
     default: 15 seconds
 
